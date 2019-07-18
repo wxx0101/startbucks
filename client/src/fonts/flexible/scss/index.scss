@@ -1,0 +1,260 @@
+// @import "common.scss";
+@import "_minix.scss";
+
+// 先定义浏览器默认变量
+$font-size: 37.5px !default;
+// 写scss函数
+@function rem($px) {
+ @return $px / $font-size * 1rem;
+}
+
+
+$bg: red;
+%juzhong{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+*{
+    @include sizing;
+}
+
+html, body {
+    @include width(100%);
+    @include height(100%);
+
+}
+
+.wrapper {
+    @include width(100%);
+    @include height(100%);
+    @include box_flex;
+    @include direction(column);
+}
+
+.header{
+    @include width(100%);
+    height: rem(45px);
+    @extend %juzhong;
+    background: $bg;
+}
+.main{
+    @include width(100%);
+    flex:1;
+    overflow: hidden;
+    padding-right:10%;
+    .main-inner{
+        @include width(100%);
+        @include height(50px);
+        background: yellow;
+        margin-bottom: rem(30px);
+        border:5px solid black;
+
+    }
+}
+
+.footer{
+    @include width(100%);
+    height: rem(45px);
+    background: $bg;
+}
+
+// footer {
+//     height: pxTorem(50px);
+//     width: 100%;
+//     @include box_flex;
+//     dl {
+//         @include flex;
+//         @include box_flex;
+//         @include justify;
+//         @include align;
+//         @include direction(column);
+//         height: 100%;
+//         dt {
+//             height: pxTorem(30px);
+//             width: pxTorem(30px);
+//             img {
+//                 height: 100%;
+//                 width: 100%;
+//             }
+//         }
+//         dd {
+//             font-size: pxTorem(10px);
+//             color: #333333;
+//         }
+//     }
+// }
+
+// section {
+//     @include flex;
+//     width: 100%;
+//     // background: #deb887;
+//     overflow-y: auto;
+//     .banner {
+//         height: pxTorem(240px);
+//         width: 100%;
+//         background: red;
+//     }
+//     .content {
+//         padding: 0 pxTorem(10px);
+//         // height: pxTorem(240px);
+//         @include sizing;
+//         .top {
+//             height: pxTorem(185px);
+//             width: 100%;
+//             background: #fff;
+//             margin-top: pxTorem(-50px);
+//             padding: pxTorem(15px) pxTorem(15px) pxTorem(20px) pxTorem(15px);
+//             @include sizing;
+//             @include box_flex;
+//             @include direction(column);
+//             border-radius: pxTorem(3px);
+//             box-shadow: 0 1px pxTorem(4px) 0 rgba(0, 0, 0, 0.15);
+//             .button {
+//                 height: pxTorem(44px);
+//                 width: 100%;
+//                 background: url(../img/button底@2x.png) no-repeat 0 0;
+//                 background-size: 100% 100%;
+//                 @include box_flex;
+//                 @include align;
+//                 @include justify;
+//                 p {
+//                     font-size: pxTorem(17px);
+//                     color: #FFFFFF;
+//                     @include align;
+//                     @include justify;
+//                     @include box_flex;
+//                     img {
+//                         height: pxTorem(17px);
+//                         width: pxTorem(17px);
+//                         margin-left: pxTorem(6px);
+//                     }
+//                 }
+//             }
+//             dl {
+//                 @include flex;
+//                 width: 100%;
+//                 @include box_flex;
+//                 dt {
+//                     height: pxTorem(86px);
+//                     width: pxTorem(86px);
+//                     margin-right: pxTorem(15px);
+//                     img {
+//                         height: 100%;
+//                         width: 100%;
+//                     }
+//                 }
+//                 dd {
+//                     h3 {
+//                         font-size: pxTorem(20px);
+//                         color: #333333;
+//                         margin-bottom: pxTorem(15px);
+//                     }
+//                     p {
+//                         font-size: pxTorem(14px);
+//                         color: #777E8C;
+//                         img {
+//                             height: pxTorem(14px);
+//                             width: pxTorem(14px);
+//                         }
+//                     }
+//                     p:nth-child(2) {
+//                         margin-bottom: pxTorem(10px);
+//                     }
+//                 }
+//             }
+//         }
+//         .line {
+//             padding: pxTorem(30px) 0 pxTorem(15px) 0;
+//             @include sizing;
+//             @include box_flex;
+//             @include justify;
+//             @include align;
+//             div {
+//                 height: pxTorem(5px);
+//                 line-height: pxTorem(5px);
+//                 width: pxTorem(179px);
+//                 background: url(../img/最新活动-提示线@2x.png) no-repeat 0 0;
+//                 background-size: 100% 100%;
+//                 text-align: center;
+//                 font-size: pxTorem(18px);
+//                 color: #333333;
+//             }
+//         }
+//         .list {
+//             width: 100%;
+//             height: pxTorem(298px);
+//             background: #FFFFFF;
+//             box-shadow: 0 1px pxTorem(4px) 0 rgba(0, 0, 0, 0.15);
+//             border-radius: pxTorem(3px);
+//             .listTop {
+//                 height: pxTorem(46px);
+//                 width: 100%;
+//                 box-shadow: inset 0 0 0 0 #DDDEE3;
+//                 border-radius: 4px 4px 0 0;
+//                 @include box_flex;
+//                 padding: pxTorem(10px) pxTorem(15px);
+//                 @include sizing;
+//                 border-bottom: 1px solid #ccc;
+//                 span {
+//                     @include flex;
+//                     text-align: center;
+//                     height: pxTorem(25px);
+//                     line-height: pxTorem(25px);
+//                     font-size: pxTorem(14px);
+//                 }
+//                 span.active {
+//                     color: #02B6A9;
+//                     background: #FFFFFF;
+//                     border: 1px solid #02B6A9;
+//                     box-shadow: 2px 0 8px 0 rgba(120, 120, 120, 0.08);
+//                     border-radius: pxTorem(100px);
+//                 }
+//             }
+//             .listContent {
+//                 padding: 0 pxTorem(15px);
+//                 @include sizing;
+//                 dl {
+//                     border-bottom: 1px solid #ccc;
+//                     @include box_flex;
+//                     padding: pxTorem(13px) 0 pxTorem(20px) 0;
+//                     @include sizing;
+//                     dt {
+//                         height: pxTorem(53px);
+//                         width: pxTorem(53px);
+//                         margin-right: pxTorem(10px);
+//                         background: red;
+//                     }
+//                     dd {
+//                         @include flex;
+//                         h3 {
+//                             font-size: pxTorem(16px);
+//                             color: #333333;
+//                             line-height: pxTorem(16px);
+//                         }
+//                         div:nth-child(2) {
+//                             font-size: pxTorem(12px);
+//                             color: #9B9B9B;
+//                             line-height: pxTorem(12px);
+//                             margin: pxTorem(7px) 0;
+//                         }
+//                         div:nth-child(3) {
+//                             font-size: pxTorem(14px);
+//                             color: #777E8C;
+//                             line-height: pxTorem(19px);
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//         .img {
+//             height: pxTorem(160px);
+//             width: 100%;
+//             margin-bottom: pxTorem(15px);
+//             img {
+//                 height: 100%;
+//                 width: 100%;
+//             }
+//         }
+//     }
+// }

@@ -1,0 +1,46 @@
+// 先定义根节点字体，
+$htmlFontSize: 37.5px !default;
+
+// 计算rem字体的公式
+@function rem($font) {
+  @return $font / $htmlFontSize * 1rem;
+}
+
+@mixin width($w:100%) {
+  width: $w;
+}
+
+@mixin height($h:100%) {
+  height: $h;
+}
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-direction($direction:column) {
+  flex-direction: $direction;
+}
+
+html,
+body,.container {
+  @include width;
+  @include height;
+}
+
+.container {
+  @include width;
+  @include height;
+  @include flex;
+  @include flex-direction;
+}
+
+.header{
+  @include width;
+  @include height(rem(45px));
+}
+
+.main {
+  @include width;
+  @include height;
+}
